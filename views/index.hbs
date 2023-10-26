@@ -1,2 +1,20 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<form method="post" action="/new">
+<label for="user">User</label>
+<input type="text" id="user" name="user" class="form-control" placeholder="Enter your name">
+<label for="message">Message</label>
+<textarea id="message" name="message" class="form-control" placeholder="Enter your message"></textarea>
+<button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>
+
+<a class="link" href="/new">NEW MESSAGE</a>
+<ul>
+    {{#each messages}}
+        <li> 
+            <p>{{this.added}}</p>
+            <p>{{this.user}}</p>
+            <p>{{this.text}}</p>
+        </li>
+    {{/each}}
+</ul>
