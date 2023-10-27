@@ -7,14 +7,14 @@
 <textarea id="message" name="message" class="form-control" placeholder="Enter your message"></textarea>
 <button type="submit" class="btn btn-primary mt-2">Submit</button>
 </form>
-
-<a class="link" href="/new">NEW MESSAGE</a>
+<div class="container mt-4 p-4 border">
 <ul>
     {{#each messages}}
-        <li> 
+        <li > 
             <p>{{this.added}}</p>
-            <p>{{this.user}}</p>
+            <p class="random-color font-weight-bold">{{this.user}}</p>
             <p>{{this.text}}</p>
         </li>
     {{/each}}
 </ul>
+</div>
