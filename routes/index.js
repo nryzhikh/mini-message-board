@@ -3,15 +3,14 @@ var router = express.Router();
 var Message = require('../models/Message');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', async (req, res, next) => {
   try {
-    const messages = Message.find();
-    res.render('index', { title: 'Mini Messageboard', messages: messages }); 
-  } catch (error) {
-    res.render('error', {error: error});
-  }
+    const messages = await Message.find();
+    res.render('index', { title: 'Mini Messageboard', messages: messages });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+    console.log(err.message);
+}
 });
-
-
 
 module.exports = router;
